@@ -1,4 +1,4 @@
-https://script.google.com/macros/s/AKfycbzTUzw3IX64LeRmkcISjuKd9bqcfAm0ilILIqwA5nqiX9bhSUIfp3ebcAjtLvhh-Z64Jg/exec
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbzTUzw3IX64LeRmkcISjuKd9bqcfAm0ilILIqwA5nqiX9bhSUIfp3ebcAjtLvhh-Z64Jg/exec'
 const EVENTS = {
   nikkah: {
     name: "Toronto Nikkah",
