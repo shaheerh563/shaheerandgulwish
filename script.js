@@ -6,7 +6,7 @@ const EVENTS = {
     city: "Toronto",
     date: "August 22",
     summary: "Toronto Nikkah, August 22 at 5:00 PM",
-    image: "nikkah-card.jpeg",
+    image: "/shaheerandgulwish/nikkah-card.jpeg"
     imageAlt: "Toronto nikkah invitation card"
   },
   walima: {
@@ -14,7 +14,7 @@ const EVENTS = {
     city: "Montreal",
     date: "August 29, 2026",
     summary: "Montreal Walima, August 29, 2026 at 7:00 PM",
-    image: "walima-card.png",
+    image: "/shaheerandgulwish/walima-card.png"
     imageAlt: "Montreal walima invitation card with red roses"
   }
 };
