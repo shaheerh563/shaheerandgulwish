@@ -94,10 +94,13 @@ form.addEventListener("submit", async (event) => {
       body: formData
     });
 
-setStatus(
-  "Thank you for your RSVP! We look forward to celebrating our special day with you. Shaheer & Gulwish",
-  "success"
-);
+setStatus(`
+Thank you for your RSVP!
+
+We look forward to celebrating our special day with you.
+
+Shaheer & Gulwish
+`, "success");
     form.reset();
     setEvent(document.body.dataset.event || "nikkah");
     syncGuestField();
