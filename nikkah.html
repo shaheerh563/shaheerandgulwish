@@ -1,1 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shaheer & Gulwish RSVP</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="card-preview" aria-label="Wedding invitation preview">
 
+        <div class="image-frame">
+          <img id="invitationImage" src="nikkah-card.jpeg" alt="Toronto nikkah invitation card">
+        </div>
+      </section>
+
+      <section class="rsvp-panel" aria-labelledby="formTitle">
+        <p class="eyebrow">Shaheer & Gulwish</p>
+        <h1 id="formTitle">RSVP</h1>
+        <p id="eventSummary" class="event-summary">
+          Toronto Nikkah, August 22 at 5:00 PM
+        </p>
+
+        <form id="rsvpForm" novalidate>
+          <input type="hidden" name="event" id="eventInput" value="Toronto Nikkah">
+          <input type="hidden" name="event_city" id="eventCityInput" value="Toronto">
+          <input type="hidden" name="event_date" id="eventDateInput" value="August 22">
+
+          <label>
+            Full name
+            <input name="name" type="text" autocomplete="name" required>
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Phone
+              <input name="phone" type="tel" autocomplete="tel" inputmode="tel">
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email">
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>Will you attend?</legend>
+            <div class="choice-row">
+              <label class="choice">
+                <input type="radio" name="attending" value="Yes" checked>
+                <span>Yes</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="attending" value="No">
+                <span>No</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label id="guestLabel">
+            Number of guests, including you
+            <input id="guestCount" name="guest_count" type="number" min="1" max="20" value="1" required>
+          </label>
+
+          <label>
+            Message or dietary notes
+            <textarea name="message" rows="4"></textarea>
+          </label>
+
+          <button id="submitButton" class="submit-button" type="submit">
+            Confirm RSVP
+          </button>
+
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
