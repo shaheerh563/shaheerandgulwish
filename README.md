@@ -13,6 +13,7 @@ The form sends RSVP submissions to:
 - `event`
 - `event_city`
 - `event_date`
+- `family`
 - `name`
 - `phone`
 - `email`
