@@ -4,7 +4,7 @@ const EVENTS = {
   nikkah: {
     name: "Toronto Nikkah",
     city: "Toronto",
-    date: "August 22",
+    date: "August 22, 2026",
     summary: "Toronto Nikkah, August 22 at 5:00 PM",
     image: "/shaheerandgulwish/nikkah-card.jpeg",
     imageAlt: "Toronto nikkah invitation card"
@@ -30,6 +30,7 @@ const guestCount = document.querySelector("#guestCount");
 const guestLabel = document.querySelector("#guestLabel");
 const statusEl = document.querySelector("#formStatus");
 const submitButton = document.querySelector("#submitButton");
+const familyInput = document.querySelector("#familyInput");
 
 function setStatus(message, type = "") {
   if (!statusEl) {
@@ -52,6 +53,8 @@ function setEvent(eventKey) {
   if (eventCityInput) eventCityInput.value = selectedEvent.city;
   if (eventDateInput) eventDateInput.value = selectedEvent.date;
   if (eventSummary) eventSummary.textContent = selectedEvent.summary;
+  applyFamilyFromUrl();
+  syncSubmittedState();
 
   if (invitationImage) {
     invitationImage.src = selectedEvent.image;
@@ -74,6 +77,62 @@ function syncGuestField() {
   guestLabel.style.display = attending ? "grid" : "none";
   guestCount.required = attending;
   guestCount.value = attending ? Math.max(Number(guestCount.value) || 1, 1) : 0;
+}
+
+function getSubmittedStorageKey(eventKey = document.body.dataset.event || getInitialEventKey()) {
+  const familyKey = familyInput?.value.trim().toLowerCase().replace(/\s+/g, "-") || "general";
+
+  return `shaheer-gulwish-rsvp:${eventKey}:${familyKey}`;
+}
+
+function hasSubmittedRsvp() {
+  try {
+    return window.localStorage.getItem(getSubmittedStorageKey()) === "submitted";
+  } catch (error) {
+    return false;
+  }
+}
+
+function markSubmittedRsvp() {
+  try {
+    window.localStorage.setItem(getSubmittedStorageKey(), "submitted");
+  } catch (error) {
+    // Local storage can be unavailable in private browsing; the server still records the RSVP.
+  }
+}
+
+function syncSubmittedState() {
+  if (!form || !submitButton) {
+    return;
+  }
+
+  const alreadySubmitted = hasSubmittedRsvp();
+
+  submitButton.disabled = alreadySubmitted;
+  submitButton.textContent = alreadySubmitted ? "RSVP Already Submitted" : "Confirm RSVP";
+
+  Array.from(form.elements).forEach((field) => {
+    if (field.type !== "hidden" && field !== submitButton) {
+      field.disabled = alreadySubmitted;
+    }
+  });
+
+  if (alreadySubmitted) {
+    setStatus("This RSVP link has already been used on this device.", "success");
+  }
+}
+
+function applyFamilyFromUrl() {
+  if (!familyInput) {
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const family = params.get("family") || params.get("guest") || params.get("f") || "";
+
+  if (family) {
+    familyInput.value = family.trim();
+  }
 }
 
 function getInitialEventKey() {
@@ -113,6 +172,12 @@ if (form) {
     formData.append("submitted_at", new Date().toISOString());
     formData.append("source", "wedding-rsvp-page");
 
+    if (hasSubmittedRsvp()) {
+      setStatus("This RSVP link has already been used on this device.", "success");
+      syncSubmittedState();
+      return;
+    }
+
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "Sending...";
@@ -125,6 +190,7 @@ if (form) {
         body: formData
       });
 
+      markSubmittedRsvp();
       setStatus(`
 Thank you for your RSVP!
 
@@ -137,6 +203,7 @@ Shaheer & Gulwish
       form.reset();
       setEvent(currentEvent);
       syncGuestField();
+      syncSubmittedState();
     } catch (error) {
       setStatus("Something went wrong. Please try again in a moment.", "error");
     } finally {
@@ -150,3 +217,4 @@ Shaheer & Gulwish
 
 setEvent(getInitialEventKey());
 syncGuestField();
+syncSubmittedState();
