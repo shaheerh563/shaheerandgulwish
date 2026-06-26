@@ -5,7 +5,7 @@ const EVENTS = {
     name: "Toronto Nikkah",
     city: "Toronto",
     date: "August 22, 2026",
-    summary: "Toronto Nikkah, August 22 at 5:00 PM",
+    summary: "Toronto Nikkah, August 22, 2026 at 5:00 PM",
     image: "/shaheerandgulwish/nikkah-card.jpeg",
     imageAlt: "Toronto nikkah invitation card"
   },
