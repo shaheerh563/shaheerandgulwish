@@ -183,6 +183,23 @@ if (form?.elements.attending) {
   input?.addEventListener("input", syncGuestField);
 });
 
+document.querySelectorAll("[data-stepper-target]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const input = document.querySelector(`#${button.dataset.stepperTarget}`);
+
+    if (!input) {
+      return;
+    }
+
+    const change = Number(button.dataset.stepperChange) || 0;
+    const min = Number(input.min) || 0;
+    const max = Number(input.max) || 20;
+    const nextValue = Math.min(Math.max((Number(input.value) || 0) + change, min), max);
+    input.value = nextValue;
+    syncGuestField();
+  });
+});
+
 if (form) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
