@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Shaheer & Gulwish RSVP</title>
-    <link rel="stylesheet" href="styles.css?v=20260627e">
+    <link rel="stylesheet" href="styles.css?v=20260627g">
   </head>
   <body>
     <main class="page-shell">
@@ -76,21 +76,29 @@
 
           <fieldset id="guestGroup" class="guest-group">
             <legend>Number of guests (including you)</legend>
-            <div class="field-grid">
-              <label>
-                Male guests
-                <input id="maleGuestCount" name="guest_count_male" type="number" min="0" max="20" value="0">
+            <div class="guest-grid">
+              <label class="guest-control">
+                <span>Male guests</span>
+                <span class="stepper">
+                  <button type="button" class="stepper-button" data-stepper-target="maleGuestCount" data-stepper-change="-1" aria-label="Decrease male guests">-</button>
+                  <input id="maleGuestCount" name="guest_count_male" type="number" min="0" max="20" value="0" inputmode="numeric">
+                  <button type="button" class="stepper-button" data-stepper-target="maleGuestCount" data-stepper-change="1" aria-label="Increase male guests">+</button>
+                </span>
               </label>
-              <label>
-                Female guests
-                <input id="femaleGuestCount" name="guest_count_female" type="number" min="0" max="20" value="0">
+              <label class="guest-control">
+                <span>Female guests</span>
+                <span class="stepper">
+                  <button type="button" class="stepper-button" data-stepper-target="femaleGuestCount" data-stepper-change="-1" aria-label="Decrease female guests">-</button>
+                  <input id="femaleGuestCount" name="guest_count_female" type="number" min="0" max="20" value="0" inputmode="numeric">
+                  <button type="button" class="stepper-button" data-stepper-target="femaleGuestCount" data-stepper-change="1" aria-label="Increase female guests">+</button>
+                </span>
               </label>
             </div>
             <input id="guestCount" name="guest_count" type="hidden" value="0">
           </fieldset>
 
           <label>
-            Message or dietary notes
+            Leave a message for the newlyweds
             <textarea name="message" rows="4"></textarea>
           </label>
 
@@ -104,7 +112,7 @@
       </section>
     </main>
 
-    <script src="script.js?v=20260627f"></script>
+    <script src="script.js?v=20260627g"></script>
     <script>
       function ensureInshaAllah() {
         const summary = document.querySelector("#eventSummary");
