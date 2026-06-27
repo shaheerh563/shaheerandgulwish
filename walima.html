@@ -33,13 +33,16 @@
         <p class="eyebrow">Shaheer & Gulwish</p>
         <h1 id="formTitle">RSVP</h1>
         <p id="eventSummary" class="event-summary">
-          Montreal Walima, August 29 at 7:00 PM
+          Montreal Walima, August 29, 2026 at 7:00 PM
+        </p>
+        <p class="rsvp-blessing">
+          We will be honoured by your presence and kindly request your duas.
         </p>
 
         <form id="rsvpForm" novalidate>
           <input type="hidden" name="event" id="eventInput" value="Montreal Walima">
           <input type="hidden" name="event_city" id="eventCityInput" value="Montreal">
-          <input type="hidden" name="event_date" id="eventDateInput" value="August 29">
+          <input type="hidden" name="event_date" id="eventDateInput" value="August 29, 2026">
           <input type="hidden" name="family" id="familyInput">
 
           <label>
@@ -72,10 +75,20 @@
             </div>
           </fieldset>
 
-          <label id="guestLabel">
-            Number of guests, including you
-            <input id="guestCount" name="guest_count" type="number" min="1" max="20" value="1" required>
-          </label>
+          <fieldset id="guestGroup" class="guest-group">
+            <legend>Number of guests, including you</legend>
+            <div class="field-grid">
+              <label>
+                Male guests
+                <input id="maleGuestCount" name="guest_count_male" type="number" min="0" max="20" value="0">
+              </label>
+              <label>
+                Female guests
+                <input id="femaleGuestCount" name="guest_count_female" type="number" min="0" max="20" value="0">
+              </label>
+            </div>
+            <input id="guestCount" name="guest_count" type="hidden" value="0">
+          </fieldset>
 
           <label>
             Message or dietary notes
@@ -87,6 +100,7 @@
           </button>
 
           <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          <p class="rsvp-deadline">Please confirm your presence by August 1.</p>
         </form>
       </section>
     </main>
