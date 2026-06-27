@@ -199,6 +199,7 @@ document.querySelectorAll("[data-stepper-target]").forEach((button) => {
     syncGuestField();
   });
 });
+window.rsvpStepperReady = true;
 
 if (form) {
   form.addEventListener("submit", async (event) => {
