@@ -5,7 +5,7 @@ const EVENTS = {
     name: "Toronto Nikkah",
     city: "Toronto",
     date: "August 22, 2026",
-    summary: "Toronto Nikkah, August 22, 2026 at 5:00 PM",
+    summary: "Toronto Nikkah, August 22, 2026 at 5:00 PM InshaAllah",
     image: "/shaheerandgulwish/nikkah-card.jpeg",
     imageAlt: "Toronto nikkah invitation card"
   },
@@ -13,7 +13,7 @@ const EVENTS = {
     name: "Montreal Walima",
     city: "Montreal",
     date: "August 29, 2026",
-    summary: "Montreal Walima, August 29, 2026 at 7:00 PM",
+    summary: "Montreal Walima, August 29, 2026 at 7:00 PM InshaAllah",
     image: "/shaheerandgulwish/walima-card.png",
     imageAlt: "Montreal walima invitation card with red roses"
   }
