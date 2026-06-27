@@ -18,6 +18,8 @@ The form sends RSVP submissions to:
 - `phone`
 - `email`
 - `attending`
+- `guest_count_male`
+- `guest_count_female`
 - `guest_count`
 - `message`
 - `submitted_at`
