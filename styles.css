@@ -123,16 +123,17 @@ body[data-event="walima"] h1 {
 }
 
 .event-summary {
-  margin: 14px 0 12px;
+  margin: 14px 0 28px;
   color: var(--muted);
   font-size: 1.12rem;
 }
 
 .rsvp-blessing {
-  margin: 0 0 28px;
-  color: var(--ink);
-  font-size: 1rem;
-  line-height: 1.5;
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.4;
+  text-align: center;
 }
 
 form {
@@ -156,7 +157,11 @@ fieldset {
 
 .guest-group {
   display: grid;
-  gap: 10px;
+  gap: 16px;
+}
+
+.guest-group legend {
+  text-align: center;
 }
 
 .field-grid {
