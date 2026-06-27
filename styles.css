@@ -158,7 +158,7 @@ fieldset {
 
 .guest-group {
   display: grid;
-  gap: 16px;
+  gap: 22px;
 }
 
 .guest-group legend {
