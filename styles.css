@@ -123,13 +123,14 @@ body[data-event="walima"] h1 {
 }
 
 .event-summary {
-  margin: 14px 0 28px;
+  margin: 14px 0 8px;
   color: var(--muted);
   font-size: 1.12rem;
+  text-align: center;
 }
 
 .rsvp-blessing {
-  margin: -6px 0 0;
+  margin: 0 0 24px;
   color: var(--green-dark);
   font-size: 0.94rem;
   font-style: italic;
@@ -164,7 +165,7 @@ fieldset {
 .guest-group legend {
   display: block;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
   text-align: center;
 }
 
@@ -266,6 +267,10 @@ body[data-event="walima"] .submit-button {
   line-height: 1.45;
 }
 
+.form-status:empty {
+  display: none;
+}
+
 .form-status.is-error {
   color: #a22222;
 }
@@ -279,7 +284,7 @@ body[data-event="walima"] .form-status.is-success {
 }
 
 .rsvp-deadline {
-  margin: -6px 0 0;
+  margin: -8px 0 0;
   color: var(--muted);
   font-size: 0.84rem;
   line-height: 1.4;
