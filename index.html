@@ -98,6 +98,19 @@
       </section>
     </main>
 
-    <script src="script.js?v=20260627e"></script>
+    <script src="script.js?v=20260627f"></script>
+    <script>
+      function ensureInshaAllah() {
+        const summary = document.querySelector("#eventSummary");
+        if (summary && !summary.textContent.includes("InshaAllah")) {
+          summary.textContent = `${summary.textContent.trim()} InshaAllah`;
+        }
+      }
+
+      ensureInshaAllah();
+      document.querySelectorAll(".event-tab").forEach((tab) => {
+        tab.addEventListener("click", () => setTimeout(ensureInshaAllah, 0));
+      });
+    </script>
   </body>
 </html>
