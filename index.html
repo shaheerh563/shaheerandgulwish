@@ -122,6 +122,28 @@
       document.querySelectorAll(".event-tab").forEach((tab) => {
         tab.addEventListener("click", () => setTimeout(ensureInshaAllah, 0));
       });
+
+      if (!window.rsvpStepperReady) {
+        document.querySelectorAll("[data-stepper-target]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const input = document.querySelector(`#${button.dataset.stepperTarget}`);
+            const total = document.querySelector("#guestCount");
+
+            if (!input) return;
+
+            const change = Number(button.dataset.stepperChange) || 0;
+            const min = Number(input.min) || 0;
+            const max = Number(input.max) || 20;
+            input.value = Math.min(Math.max((Number(input.value) || 0) + change, min), max);
+
+            if (total) {
+              const male = Number(document.querySelector("#maleGuestCount")?.value) || 0;
+              const female = Number(document.querySelector("#femaleGuestCount")?.value) || 0;
+              total.value = male + female;
+            }
+          });
+        });
+      }
     </script>
   </body>
 </html>
