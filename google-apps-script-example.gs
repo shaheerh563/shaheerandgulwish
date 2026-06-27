@@ -13,6 +13,8 @@ const HEADERS = [
   "Phone",
   "Email",
   "Attending",
+  "Male Guests",
+  "Female Guests",
   "Guest Count",
   "Message",
   "Source"
@@ -39,7 +41,9 @@ function doPost(e) {
       values.phone || "",
       values.email || "",
       values.attending || "",
-      values.guest_count || "",
+      getGuestCount(values.guest_count_male),
+      getGuestCount(values.guest_count_female),
+      getTotalGuestCount(values),
       values.message || "",
       values.source || ""
     ]);
@@ -51,6 +55,20 @@ function doPost(e) {
       error: err.toString()
     });
   }
+}
+
+function getGuestCount(value) {
+  return Math.max(Number(value) || 0, 0);
+}
+
+function getTotalGuestCount(values) {
+  const submittedTotal = Number(values.guest_count);
+
+  if (!Number.isNaN(submittedTotal) && submittedTotal > 0) {
+    return submittedTotal;
+  }
+
+  return getGuestCount(values.guest_count_male) + getGuestCount(values.guest_count_female);
 }
 
 function doGet() {
