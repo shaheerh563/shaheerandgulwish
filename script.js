@@ -27,7 +27,9 @@ const eventDateInput = document.querySelector("#eventDateInput");
 const eventSummary = document.querySelector("#eventSummary");
 const invitationImage = document.querySelector("#invitationImage");
 const guestCount = document.querySelector("#guestCount");
-const guestLabel = document.querySelector("#guestLabel");
+const guestGroup = document.querySelector("#guestGroup");
+const maleGuestCount = document.querySelector("#maleGuestCount");
+const femaleGuestCount = document.querySelector("#femaleGuestCount");
 const statusEl = document.querySelector("#formStatus");
 const submitButton = document.querySelector("#submitButton");
 const familyInput = document.querySelector("#familyInput");
@@ -68,15 +70,33 @@ function setEvent(eventKey) {
   });
 }
 
+function normalizeGuestCount(input) {
+  if (!input) {
+    return 0;
+  }
+
+  const value = Math.max(Number(input.value) || 0, 0);
+  input.value = value;
+
+  return value;
+}
+
 function syncGuestField() {
-  if (!form || !guestLabel || !guestCount || !form.elements.attending) {
+  if (!form || !guestGroup || !guestCount || !form.elements.attending) {
     return;
   }
 
   const attending = form.elements.attending.value === "Yes";
-  guestLabel.style.display = attending ? "grid" : "none";
-  guestCount.required = attending;
-  guestCount.value = attending ? Math.max(Number(guestCount.value) || 1, 1) : 0;
+  guestGroup.style.display = attending ? "grid" : "none";
+
+  if (!attending) {
+    if (maleGuestCount) maleGuestCount.value = 0;
+    if (femaleGuestCount) femaleGuestCount.value = 0;
+  }
+
+  const maleCount = normalizeGuestCount(maleGuestCount);
+  const femaleCount = normalizeGuestCount(femaleGuestCount);
+  guestCount.value = attending ? maleCount + femaleCount : 0;
 }
 
 function getSubmittedStorageKey(eventKey = document.body.dataset.event || getInitialEventKey()) {
@@ -159,6 +179,10 @@ if (form?.elements.attending) {
   });
 }
 
+[maleGuestCount, femaleGuestCount].forEach((input) => {
+  input?.addEventListener("input", syncGuestField);
+});
+
 if (form) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -167,6 +191,8 @@ if (form) {
     if (!form.reportValidity()) {
       return;
     }
+
+    syncGuestField();
 
     const formData = new FormData(form);
     formData.append("submitted_at", new Date().toISOString());
@@ -207,7 +233,7 @@ Shaheer & Gulwish
     } catch (error) {
       setStatus("Something went wrong. Please try again in a moment.", "error");
     } finally {
-      if (submitButton) {
+      if (submitButton && !hasSubmittedRsvp()) {
         submitButton.disabled = false;
         submitButton.textContent = "Confirm RSVP";
       }
