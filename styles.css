@@ -158,10 +158,13 @@ fieldset {
 
 .guest-group {
   display: grid;
-  gap: 22px;
+  gap: 0;
 }
 
 .guest-group legend {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
   text-align: center;
 }
 
