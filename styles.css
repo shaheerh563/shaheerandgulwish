@@ -123,9 +123,16 @@ body[data-event="walima"] h1 {
 }
 
 .event-summary {
-  margin: 14px 0 28px;
+  margin: 14px 0 12px;
   color: var(--muted);
   font-size: 1.12rem;
+}
+
+.rsvp-blessing {
+  margin: 0 0 28px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 form {
@@ -145,6 +152,11 @@ fieldset {
   margin: 0;
   padding: 0;
   border: 0;
+}
+
+.guest-group {
+  display: grid;
+  gap: 10px;
 }
 
 .field-grid {
@@ -255,6 +267,14 @@ body[data-event="walima"] .submit-button {
 
 body[data-event="walima"] .form-status.is-success {
   color: var(--rose);
+}
+
+.rsvp-deadline {
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.4;
+  text-align: center;
 }
 
 @media (max-width: 860px) {
