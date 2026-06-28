@@ -183,6 +183,7 @@ fieldset {
 
 .guest-control {
   min-width: 0;
+  text-align: center;
 }
 
 .stepper {
