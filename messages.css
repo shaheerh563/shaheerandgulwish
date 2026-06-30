@@ -104,20 +104,39 @@ input[type="text"] {
   padding: 0 14px;
 }
 
+input[type="text"]:disabled {
+  color: var(--muted);
+  background: rgba(223, 233, 216, 0.36);
+}
+
 textarea:focus,
 input[type="text"]:focus {
   border-color: var(--green);
   box-shadow: 0 0 0 3px rgba(111, 143, 104, 0.18);
 }
 
+.name-choice-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.name-group {
+  display: grid;
+  gap: 8px;
+}
+
 .toggle-row {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-height: 46px;
   width: fit-content;
   color: var(--green);
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 }
 
 .toggle-row input {
@@ -128,6 +147,7 @@ input[type="text"]:focus {
 .checkmark {
   display: grid;
   place-items: center;
+  flex: 0 0 auto;
   width: 22px;
   height: 22px;
   border: 1px solid var(--leaf);
@@ -228,6 +248,18 @@ button:disabled {
   right: 24px;
   bottom: 14px;
   transform: scale(-1);
+}
+
+@media (max-width: 620px) {
+  .name-choice-row {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .toggle-row {
+    min-height: auto;
+    white-space: normal;
+  }
 }
 
 @media (max-width: 520px) {
