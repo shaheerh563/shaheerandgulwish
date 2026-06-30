@@ -198,6 +198,16 @@ button:disabled {
   text-align: center;
 }
 
+.reveal-note {
+  max-width: 440px;
+  margin: -4px auto 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.35;
+  text-align: center;
+}
+
 .leaf {
   position: absolute;
   width: 118px;
