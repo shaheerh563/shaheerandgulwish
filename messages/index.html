@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leave a Message for the Bride</title>
+    <link rel="stylesheet" href="../messages.css?v=20260630b">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="message-panel" aria-label="Bride message form">
+        <div class="leaf leaf-top-left" aria-hidden="true"></div>
+        <div class="leaf leaf-top-right" aria-hidden="true"></div>
+        <div class="leaf leaf-bottom-left" aria-hidden="true"></div>
+        <div class="leaf leaf-bottom-right" aria-hidden="true"></div>
+
+        <p class="kicker">For the bride</p>
+        <h1>Leave a specific message for the bride</h1>
+
+        <form id="messageForm" class="message-form">
+          <label class="field-label" for="message">Your message</label>
+          <textarea id="message" name="message" maxlength="1500" required></textarea>
+
+          <label class="toggle-row">
+            <input id="anonymous" name="anonymous" type="checkbox" checked>
+            <span class="checkmark" aria-hidden="true"></span>
+            <span>Send anonymously</span>
+          </label>
+
+          <div id="nameGroup" class="name-group hidden">
+            <label class="field-label" for="name">Your name</label>
+            <input id="name" name="name" type="text" maxlength="80" autocomplete="name">
+          </div>
+
+          <button id="submitButton" type="submit">Send message</button>
+          <p id="status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script>window.MESSAGES_CONFIG = { GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzR0C3f7CD_k56DmHD6vDjOwSdDDGbOG5ZdrrQ94lF_8BxwGDfL5MnVBjAroQpxLgRU8g/exec" };</script>
+    <script src="../messages.js?v=20260630b"></script>
+  </body>
+</html>
