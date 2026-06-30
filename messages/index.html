@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Leave a Message for the Bride</title>
-    <link rel="stylesheet" href="../messages.css?v=20260630b">
+    <link rel="stylesheet" href="../messages.css?v=20260630c">
   </head>
   <body>
     <main class="page-shell">
@@ -21,15 +21,17 @@
           <label class="field-label" for="message">Your message</label>
           <textarea id="message" name="message" maxlength="1500" required></textarea>
 
-          <label class="toggle-row">
-            <input id="anonymous" name="anonymous" type="checkbox" checked>
-            <span class="checkmark" aria-hidden="true"></span>
-            <span>Send anonymously</span>
-          </label>
+          <div class="name-choice-row">
+            <div class="name-group">
+              <label class="field-label" for="name">Your name (optional)</label>
+              <input id="name" name="name" type="text" maxlength="80" autocomplete="name" placeholder="Leave your name if you would like">
+            </div>
 
-          <div id="nameGroup" class="name-group hidden">
-            <label class="field-label" for="name">Your name</label>
-            <input id="name" name="name" type="text" maxlength="80" autocomplete="name">
+            <label class="toggle-row">
+              <input id="anonymous" name="anonymous" type="checkbox">
+              <span class="checkmark" aria-hidden="true"></span>
+              <span>Send anonymously instead</span>
+            </label>
           </div>
 
           <button id="submitButton" type="submit">Send message</button>
@@ -39,6 +41,6 @@
     </main>
 
     <script>window.MESSAGES_CONFIG = { GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzR0C3f7CD_k56DmHD6vDjOwSdDDGbOG5ZdrrQ94lF_8BxwGDfL5MnVBjAroQpxLgRU8g/exec" };</script>
-    <script src="../messages.js?v=20260630b"></script>
+    <script src="../messages.js?v=20260630c"></script>
   </body>
 </html>
