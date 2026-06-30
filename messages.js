@@ -46,7 +46,7 @@ form.addEventListener("submit", async (event) => {
     anonymous.checked = true;
     nameGroup.classList.add("hidden");
     nameInput.required = false;
-    statusEl.textContent = "Sent. Thank you for leaving her something beautiful.";
+    statusEl.textContent = "Sent! Thank you so much in helping me prepare a fun surprise for Gulwish ;)";
   } catch (error) {
     statusEl.textContent = "Something went wrong. Please try again in a moment.";
   } finally {
