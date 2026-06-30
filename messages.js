@@ -1,16 +1,18 @@
 const form = document.querySelector("#messageForm");
 const anonymous = document.querySelector("#anonymous");
-const nameGroup = document.querySelector("#nameGroup");
 const nameInput = document.querySelector("#name");
 const statusEl = document.querySelector("#status");
 const submitButton = document.querySelector("#submitButton");
 
-anonymous.addEventListener("change", () => {
+function syncAnonymousChoice() {
   const isAnonymous = anonymous.checked;
-  nameGroup.classList.toggle("hidden", isAnonymous);
-  nameInput.required = !isAnonymous;
+  nameInput.disabled = isAnonymous;
+  nameInput.placeholder = isAnonymous ? "Anonymous selected" : "Leave your name if you would like";
   if (isAnonymous) nameInput.value = "";
-});
+}
+
+anonymous.addEventListener("change", syncAnonymousChoice);
+syncAnonymousChoice();
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -43,9 +45,8 @@ form.addEventListener("submit", async (event) => {
       body: JSON.stringify(payload)
     });
     form.reset();
-    anonymous.checked = true;
-    nameGroup.classList.add("hidden");
-    nameInput.required = false;
+    anonymous.checked = false;
+    syncAnonymousChoice();
     statusEl.textContent = "Sent! Thank you so much in helping me prepare a fun surprise for Gulwish ;)";
   } catch (error) {
     statusEl.textContent = "Something went wrong. Please try again in a moment.";
