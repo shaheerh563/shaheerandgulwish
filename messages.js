@@ -7,7 +7,7 @@ const submitButton = document.querySelector("#submitButton");
 function syncAnonymousChoice() {
   const isAnonymous = anonymous.checked;
   nameInput.disabled = isAnonymous;
-  nameInput.placeholder = isAnonymous ? "Anonymous selected" : "Leave your name if you would like";
+  nameInput.placeholder = isAnonymous ? "Anonymous selected" : "Leave your name please";
   if (isAnonymous) nameInput.value = "";
 }
 
@@ -47,7 +47,7 @@ form.addEventListener("submit", async (event) => {
     form.reset();
     anonymous.checked = false;
     syncAnonymousChoice();
-    statusEl.textContent = "Sent! Thank you so much in helping me prepare a fun surprise for Gulwish ;)";
+    statusEl.textContent = "Thank you all for helping me make something special for your friend!";
   } catch (error) {
     statusEl.textContent = "Something went wrong. Please try again in a moment.";
   } finally {
