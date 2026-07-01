@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" fill="none" stroke="#8d9c7f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<rect width="1000" height="1500" fill="#faf8f0"/>
+<path d="M130 1450V330C130 185 275 90 500 90s370 95 370 240v1120" stroke-width="3"/>
+<path d="M150 1450V345C150 215 282 115 500 115s350 100 350 230v1105" stroke-width="1.8"/>
+<path d="M168 1450V355C168 235 292 135 500 135s332 100 332 220v1095" stroke="#c8b78c" stroke-width="1.4" stroke-dasharray="2 7"/>
+<defs>
+<g id="l"><path d="M0 0C20-23 47-21 61-2C39 8 18 8 0 0Z"/><path d="M5-1C24-3 40-2 56-3"/></g>
+<g id="b"><path d="M0 28C-13 14-12-5 0-17C13-5 13 14 0 28Z"/><path d="M-11 5L0 28L11 5"/></g>
+<g id="f"><path d="M0-52C17-43 23-26 15-8C35-20 53-10 52 9C34 18 21 17 8 7C20 27 12 45-7 51C-24 36-27 20-17 5C-35 18-53 7-52-12C-33-23-19-20-8-8C-20-27-15-44 0-52Z"/><path d="M0-36C12-26 13-13 5-2C19-9 31-2 31 11C18 18 7 16 0 7C5 22-2 32-15 34C-25 22-24 10-15 2C-29 6-38-3-34-16C-20-21-10-17-5-7C-9-20-6-30 0-36Z"/><circle r="7"/></g>
+<g id="s"><path d="M0 120C22 85 29 41 25 0"/><use href="#l" transform="translate(17 22) rotate(-30) scale(.55)"/><use href="#l" transform="translate(18 52) rotate(-18) scale(.48)"/><use href="#l" transform="translate(11 82) rotate(-5) scale(.42)"/><use href="#l" transform="translate(27 38) rotate(155) scale(.45)"/><use href="#l" transform="translate(21 69) rotate(165) scale(.42)"/><use href="#b" transform="translate(25 0) scale(.48)"/></g>
+</defs>
+<g opacity=".86">
+<use href="#f" transform="translate(82 125) scale(1.35)"/><use href="#f" transform="translate(196 67) scale(.8)"/><use href="#f" transform="translate(35 280) scale(.72)"/>
+<path d="M-5 360C60 285 52 176 92 90M60 225C115 206 142 163 161 112M92 103C141 127 184 125 226 102"/>
+<use href="#s" transform="translate(42 355) rotate(185) scale(.9)"/><use href="#s" transform="translate(180 185) rotate(218) scale(.85)"/>
+<g transform="translate(1000 0) scale(-1 1)"><use href="#f" transform="translate(82 125) scale(1.35)"/><use href="#f" transform="translate(196 67) scale(.8)"/><use href="#f" transform="translate(35 280) scale(.72)"/><path d="M-5 360C60 285 52 176 92 90M60 225C115 206 142 163 161 112M92 103C141 127 184 125 226 102"/><use href="#s" transform="translate(42 355) rotate(185) scale(.9)"/></g>
+<use href="#f" transform="translate(72 1368) scale(1.18)"/><use href="#f" transform="translate(176 1450) scale(.75)"/><path d="M-5 1200C62 1260 45 1365 82 1410M66 1310C112 1287 144 1253 164 1197"/><use href="#s" transform="translate(42 1180) rotate(-6) scale(.9)"/>
+<g transform="translate(1000 0) scale(-1 1)"><use href="#f" transform="translate(72 1368) scale(1.18)"/><use href="#f" transform="translate(176 1450) scale(.75)"/><path d="M-5 1200C62 1260 45 1365 82 1410M66 1310C112 1287 144 1253 164 1197"/><use href="#s" transform="translate(42 1180) rotate(-6) scale(.9)"/></g>
+<use href="#s" transform="translate(34 520) rotate(180) scale(.72)"/><use href="#s" transform="translate(966 520) scale(-.72,.72) rotate(180)"/>
+<use href="#s" transform="translate(25 800) rotate(178) scale(.62)"/><use href="#s" transform="translate(975 800) scale(-.62,.62) rotate(178)"/>
+<use href="#s" transform="translate(35 1040) rotate(180) scale(.7)"/><use href="#s" transform="translate(965 1040) scale(-.7,.7) rotate(180)"/>
+</g></svg>
