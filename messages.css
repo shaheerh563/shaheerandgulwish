@@ -1,11 +1,12 @@
 :root {
-  --green: #284b3b;
-  --leaf: #6f8f68;
-  --sage: #dfe9d8;
+  --green: #24493d;
+  --leaf: #8c9d7e;
+  --sage: #dfe6d8;
   --cream: #fffdf7;
-  --gold: #c7a76b;
-  --ink: #23342a;
-  --muted: #687568;
+  --paper: #faf8f0;
+  --gold: #c8b78c;
+  --ink: #203b32;
+  --muted: #77806f;
 }
 
 * {
@@ -16,9 +17,11 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 20% 12%, rgba(111, 143, 104, 0.14), transparent 28rem),
-    linear-gradient(135deg, #f7faf3 0%, #fffdf7 52%, #eef5eb 100%);
+  background-color: #f2f3eb;
+  background-image:
+    radial-gradient(ellipse at 2% 8%, rgba(124, 145, 111, 0.23) 0 2px, transparent 3px),
+    radial-gradient(ellipse at 98% 14%, rgba(124, 145, 111, 0.2) 0 2px, transparent 3px),
+    linear-gradient(135deg, #edf1e8 0%, #fbfaf4 46%, #eef2e8 100%);
   font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -26,54 +29,110 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 34px 24px;
+  overflow: hidden;
 }
 
 .message-panel {
   position: relative;
-  width: min(620px, 100%);
-  padding: clamp(28px, 6vw, 54px);
-  border: 1px solid rgba(111, 143, 104, 0.38);
-  background: rgba(255, 253, 247, 0.92);
-  box-shadow: 0 24px 70px rgba(40, 75, 59, 0.14);
+  width: min(720px, 100%);
+  padding: 112px 68px 58px;
+  border: 3px solid rgba(124, 145, 111, 0.88);
+  border-radius: 340px 340px 8px 8px / 220px 220px 8px 8px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.92), transparent 24rem),
+    rgba(255, 253, 247, 0.97);
+  box-shadow: 0 28px 90px rgba(40, 75, 59, 0.15);
   overflow: hidden;
 }
 
-.message-panel::before {
+.message-panel::before,
+.message-panel::after {
   content: "";
   position: absolute;
-  inset: 14px;
-  border: 1px solid rgba(199, 167, 107, 0.42);
   pointer-events: none;
+  border-radius: 320px 320px 4px 4px / 205px 205px 4px 4px;
+}
+
+.message-panel::before {
+  inset: 12px;
+  border: 2px solid rgba(124, 145, 111, 0.68);
+}
+
+.message-panel::after {
+  inset: 22px;
+  border: 1px dotted rgba(200, 183, 140, 0.9);
+}
+
+.bismillah {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto 13px;
+  color: var(--green);
+  font-family: "Times New Roman", serif;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.ornament-line {
+  position: relative;
+  z-index: 2;
+  width: 180px;
+  height: 18px;
+  margin: 0 auto 20px;
+}
+
+.ornament-line::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  border-top: 1px solid rgba(124, 145, 111, 0.72);
+}
+
+.ornament-line::after {
+  content: "❧";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  padding: 0 10px;
+  color: var(--leaf);
+  background: var(--cream);
+  font-size: 1.35rem;
+  transform: translateX(-50%);
 }
 
 .kicker {
-  margin: 0 0 10px;
+  position: relative;
+  z-index: 2;
+  margin: 0 0 12px;
   color: var(--green);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
 }
 
 h1 {
   position: relative;
-  z-index: 1;
-  max-width: 520px;
-  margin: 0 auto 30px;
+  z-index: 2;
+  max-width: 560px;
+  margin: 0 auto 34px;
   color: var(--green);
   font-family: "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive;
-  font-size: clamp(2.65rem, 8.5vw, 5rem);
+  font-size: 4.1rem;
   font-style: italic;
   font-weight: 400;
-  line-height: 0.92;
+  line-height: 0.94;
   text-align: center;
 }
 
 .message-form {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   gap: 14px;
 }
@@ -97,8 +156,9 @@ h1 {
 textarea,
 input[type="text"] {
   width: 100%;
-  border: 1px solid rgba(111, 143, 104, 0.55);
-  background: #fffef9;
+  border: 1px solid rgba(124, 145, 111, 0.62);
+  border-radius: 2px;
+  background: rgba(255, 254, 249, 0.96);
   color: var(--ink);
   font: 1rem/1.5 Georgia, "Times New Roman", serif;
   outline: none;
@@ -117,13 +177,13 @@ input[type="text"] {
 
 input[type="text"]:disabled {
   color: var(--muted);
-  background: rgba(223, 233, 216, 0.36);
+  background: rgba(223, 230, 216, 0.5);
 }
 
 textarea:focus,
 input[type="text"]:focus {
   border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(111, 143, 104, 0.18);
+  box-shadow: 0 0 0 3px rgba(124, 145, 111, 0.18);
 }
 
 .name-choice-row {
@@ -189,12 +249,17 @@ input[type="text"]:focus {
 }
 
 button {
-  height: 48px;
-  border: 0;
+  height: 50px;
+  border: 1px solid var(--green);
+  border-radius: 2px;
   background: var(--green);
   color: #fff;
   font: 700 1rem/1 Georgia, "Times New Roman", serif;
   cursor: pointer;
+}
+
+button:hover {
+  background: #315b4c;
 }
 
 button:disabled {
@@ -205,12 +270,13 @@ button:disabled {
 .status {
   min-height: 24px;
   margin: 0;
-  color: var(--muted);
+  color: var(--green);
+  font-style: italic;
   text-align: center;
 }
 
 .reveal-note {
-  max-width: 460px;
+  max-width: 470px;
   margin: -4px auto 0;
   color: var(--muted);
   font-size: 0.78rem;
@@ -223,14 +289,14 @@ button:disabled {
   display: block;
   margin-top: 3px;
   font-size: 0.68rem;
-  font-style: italic;
 }
 
 .leaf {
   position: absolute;
-  width: 118px;
-  height: 118px;
-  opacity: 0.55;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  opacity: 0.46;
   pointer-events: none;
 }
 
@@ -238,47 +304,59 @@ button:disabled {
 .leaf::after {
   content: "";
   position: absolute;
-  width: 54px;
-  height: 24px;
-  border-radius: 54px 0;
-  background: linear-gradient(90deg, rgba(111, 143, 104, 0.8), rgba(223, 233, 216, 0.65));
+  width: 72px;
+  height: 30px;
+  border: 1px solid rgba(124, 145, 111, 0.85);
+  border-radius: 70% 8% 70% 8%;
+  background:
+    linear-gradient(165deg, transparent 48%, rgba(124, 145, 111, 0.5) 49% 51%, transparent 52%);
   transform-origin: 0 50%;
 }
 
 .leaf::before {
-  transform: rotate(-35deg);
+  transform: rotate(-38deg);
 }
 
 .leaf::after {
-  top: 34px;
-  left: 16px;
-  transform: rotate(24deg);
+  top: 44px;
+  left: 18px;
+  transform: rotate(28deg);
 }
 
 .leaf-top-left {
-  top: 24px;
-  left: 24px;
+  top: 46px;
+  left: 38px;
+  transform: rotate(-12deg);
 }
 
 .leaf-top-right {
-  top: 24px;
-  right: 24px;
-  transform: scaleX(-1);
+  top: 46px;
+  right: 38px;
+  transform: scaleX(-1) rotate(-12deg);
 }
 
 .leaf-bottom-left {
-  bottom: 14px;
-  left: 24px;
-  transform: scaleY(-1);
+  bottom: 24px;
+  left: 28px;
+  transform: scaleY(-1) rotate(-10deg);
 }
 
 .leaf-bottom-right {
-  right: 24px;
-  bottom: 14px;
-  transform: scale(-1);
+  right: 28px;
+  bottom: 24px;
+  transform: scale(-1) rotate(-10deg);
 }
 
-@media (max-width: 620px) {
+@media (max-width: 720px) {
+  .page-shell {
+    padding: 16px;
+  }
+
+  .message-panel {
+    padding: 96px 42px 52px;
+    border-radius: 300px 300px 8px 8px / 185px 185px 8px 8px;
+  }
+
   .name-choice-row {
     grid-template-columns: 1fr;
     align-items: stretch;
@@ -288,29 +366,60 @@ button:disabled {
     min-height: auto;
     white-space: normal;
   }
+
+  h1 {
+    font-size: 3.5rem;
+  }
 }
 
 @media (max-width: 520px) {
   .page-shell {
-    padding: 12px;
+    padding: 8px;
   }
 
   .message-panel {
-    min-height: calc(100vh - 24px);
-    display: grid;
-    align-content: center;
+    min-height: calc(100vh - 16px);
+    padding: 78px 28px 42px;
+    border-radius: 230px 230px 6px 6px / 150px 150px 6px 6px;
+  }
+
+  .message-panel::before {
+    inset: 9px;
+  }
+
+  .message-panel::after {
+    inset: 17px;
+  }
+
+  .bismillah {
+    font-size: 1.08rem;
+  }
+
+  .ornament-line {
+    width: 140px;
+    margin-bottom: 16px;
   }
 
   .kicker {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
   h1 {
-    font-size: clamp(2.65rem, 12vw, 4rem);
+    font-size: 3rem;
   }
 
   .leaf {
-    width: 82px;
-    height: 82px;
+    width: 94px;
+    height: 94px;
+  }
+
+  .leaf-top-left {
+    top: 34px;
+    left: 18px;
+  }
+
+  .leaf-top-right {
+    top: 34px;
+    right: 18px;
   }
 }
