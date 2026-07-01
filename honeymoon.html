@@ -17,7 +17,7 @@
     .sparkles{position:fixed;inset:0;overflow:hidden;pointer-events:none}.sparkles i{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;opacity:.65;animation:float 8s linear infinite}.sparkles i:nth-child(1){left:8%;top:86%;animation-delay:-1s}.sparkles i:nth-child(2){left:22%;top:24%;animation-delay:-5s}.sparkles i:nth-child(3){left:76%;top:18%;animation-delay:-2s}.sparkles i:nth-child(4){left:91%;top:68%;animation-delay:-6s}.sparkles i:nth-child(5){left:58%;top:88%;animation-delay:-3s}
     main{position:relative;z-index:1;min-height:100svh;display:grid;place-items:center;padding:22px}
     .card{width:min(720px,100%);min-height:min(650px,calc(100svh - 44px));display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:clamp(30px,7vw,72px);border:1px solid rgba(255,255,255,.76);border-radius:36px;background:var(--white);box-shadow:var(--shadow);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-    .eyebrow{margin:0 0 14px;color:var(--berry);font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.welcome-eyebrow{font-size:clamp(1rem,3vw,1.25rem)}.guess-eyebrow{font-size:clamp(.95rem,2.8vw,1.15rem)}.kicker{font-size:clamp(2.8rem,9vw,5.7rem);line-height:.96;margin:0;font-family:"Playfair Display",serif}.kicker em{color:var(--berry)}
+    .eyebrow{margin:0 0 14px;color:var(--berry);font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.welcome-eyebrow{font-size:clamp(1rem,3vw,1.25rem)}.guess-eyebrow,.reveal-eyebrow{font-size:clamp(.95rem,2.8vw,1.15rem)}.kicker{font-size:clamp(2.8rem,9vw,5.7rem);line-height:.96;margin:0;font-family:"Playfair Display",serif}.kicker em{color:var(--berry)}
     .intro-copy{max-width:470px;margin:22px auto 18px;color:var(--muted);line-height:1.7}.rules{max-width:470px;margin:0 auto 30px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.55);color:var(--berry);font-size:.88rem;font-weight:600}.plane{display:inline-block;animation:bob 2.5s ease-in-out infinite}
     .primary,.choice,.secondary{border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}.primary{padding:15px 25px;border-radius:999px;background:linear-gradient(135deg,var(--pink),var(--berry));box-shadow:0 12px 28px rgba(216,59,101,.28);color:#fff;font-weight:700}.primary:hover,.choice:hover,.secondary:hover{transform:translateY(-2px)}.primary:active,.choice:active,.secondary:active{transform:translateY(0)}
     .stage{width:100%}.stage[hidden]{display:none}.hint-number{display:inline-grid;place-items:center;width:52px;height:52px;margin-bottom:24px;border-radius:50%;background:#fff;color:var(--berry);font-weight:700;box-shadow:0 8px 24px rgba(216,59,101,.14)}.hint{max-width:570px;margin:0 auto 34px;font-family:"Playfair Display",serif;font-size:clamp(2rem,7vw,3.7rem);line-height:1.1}.hint-in{animation:reveal .65s cubic-bezier(.2,.8,.2,1)}.hint.long-hint{font-size:clamp(1.7rem,5.8vw,3.1rem)}
@@ -64,7 +64,7 @@
       </div>
 
       <div class="stage" id="reveal" hidden>
-        <p class="eyebrow">You guessed it!</p>
+        <p class="eyebrow reveal-eyebrow">You guessed it!</p>
         <h2 class="destination">Madrid</h2>
         <p class="celebrate">Spain, here we come! 🇪🇸✨</p>
         <div class="ticket" aria-label="Flight itinerary from Montreal to Madrid">
