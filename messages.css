@@ -17,11 +17,12 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background-color: #f2f3eb;
-  background-image:
-    radial-gradient(ellipse at 2% 8%, rgba(124, 145, 111, 0.23) 0 2px, transparent 3px),
-    radial-gradient(ellipse at 98% 14%, rgba(124, 145, 111, 0.2) 0 2px, transparent 3px),
-    linear-gradient(135deg, #edf1e8 0%, #fbfaf4 46%, #eef2e8 100%);
+  background-color: #faf8f0;
+  background-image: linear-gradient(rgba(255, 253, 247, 0.08), rgba(255, 253, 247, 0.08)), url("floral-frame.svg");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: min(100%, 1000px) auto;
+  background-attachment: fixed;
   font-family: Georgia, "Times New Roman", serif;
 }
 
@@ -41,8 +42,9 @@ body {
   border-radius: 340px 340px 8px 8px / 220px 220px 8px 8px;
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.92), transparent 24rem),
-    rgba(255, 253, 247, 0.97);
-  box-shadow: 0 28px 90px rgba(40, 75, 59, 0.15);
+    rgba(255, 253, 247, 0.91);
+  box-shadow: 0 28px 90px rgba(40, 75, 59, 0.12);
+  backdrop-filter: blur(2px);
   overflow: hidden;
 }
 
@@ -292,59 +294,7 @@ button:disabled {
 }
 
 .leaf {
-  position: absolute;
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  opacity: 0.46;
-  pointer-events: none;
-}
-
-.leaf::before,
-.leaf::after {
-  content: "";
-  position: absolute;
-  width: 72px;
-  height: 30px;
-  border: 1px solid rgba(124, 145, 111, 0.85);
-  border-radius: 70% 8% 70% 8%;
-  background:
-    linear-gradient(165deg, transparent 48%, rgba(124, 145, 111, 0.5) 49% 51%, transparent 52%);
-  transform-origin: 0 50%;
-}
-
-.leaf::before {
-  transform: rotate(-38deg);
-}
-
-.leaf::after {
-  top: 44px;
-  left: 18px;
-  transform: rotate(28deg);
-}
-
-.leaf-top-left {
-  top: 46px;
-  left: 38px;
-  transform: rotate(-12deg);
-}
-
-.leaf-top-right {
-  top: 46px;
-  right: 38px;
-  transform: scaleX(-1) rotate(-12deg);
-}
-
-.leaf-bottom-left {
-  bottom: 24px;
-  left: 28px;
-  transform: scaleY(-1) rotate(-10deg);
-}
-
-.leaf-bottom-right {
-  right: 28px;
-  bottom: 24px;
-  transform: scale(-1) rotate(-10deg);
+  display: none;
 }
 
 @media (max-width: 720px) {
