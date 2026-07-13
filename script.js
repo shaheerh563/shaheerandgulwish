@@ -30,6 +30,9 @@ const guestCount = document.querySelector("#guestCount");
 const guestGroup = document.querySelector("#guestGroup");
 const maleGuestCount = document.querySelector("#maleGuestCount");
 const femaleGuestCount = document.querySelector("#femaleGuestCount");
+const bringingChildren = document.querySelector("#bringingChildren");
+const childrenCountWrap = document.querySelector("#childrenCountWrap");
+const childrenGuestCount = document.querySelector("#childrenGuestCount");
 const statusEl = document.querySelector("#formStatus");
 const submitButton = document.querySelector("#submitButton");
 const familyInput = document.querySelector("#familyInput");
@@ -88,15 +91,26 @@ function syncGuestField() {
 
   const attending = form.elements.attending.value === "Yes";
   guestGroup.style.display = attending ? "grid" : "none";
+  const hasChildren = attending && bringingChildren?.value === "Yes";
+
+  if (childrenCountWrap) {
+    childrenCountWrap.hidden = !hasChildren;
+  }
 
   if (!attending) {
     if (maleGuestCount) maleGuestCount.value = 0;
     if (femaleGuestCount) femaleGuestCount.value = 0;
+    if (bringingChildren) bringingChildren.value = "No";
+  }
+
+  if (!hasChildren && childrenGuestCount) {
+    childrenGuestCount.value = 0;
   }
 
   const maleCount = normalizeGuestCount(maleGuestCount);
   const femaleCount = normalizeGuestCount(femaleGuestCount);
-  guestCount.value = attending ? maleCount + femaleCount : 0;
+  const childrenCount = normalizeGuestCount(childrenGuestCount);
+  guestCount.value = attending ? maleCount + femaleCount + childrenCount : 0;
 }
 
 function getSubmittedStorageKey(eventKey = document.body.dataset.event || getInitialEventKey()) {
@@ -179,9 +193,11 @@ if (form?.elements.attending) {
   });
 }
 
-[maleGuestCount, femaleGuestCount].forEach((input) => {
+[maleGuestCount, femaleGuestCount, childrenGuestCount].forEach((input) => {
   input?.addEventListener("input", syncGuestField);
 });
+
+bringingChildren?.addEventListener("change", syncGuestField);
 
 document.querySelectorAll("[data-stepper-target]").forEach((button) => {
   button.addEventListener("click", () => {
