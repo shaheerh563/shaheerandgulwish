@@ -15,6 +15,7 @@ const HEADERS = [
   "Attending",
   "Male Guests",
   "Female Guests",
+  "Children",
   "Guest Count",
   "Message",
   "Source"
@@ -43,6 +44,7 @@ function doPost(e) {
       values.attending || "",
       getGuestCount(values.guest_count_male),
       getGuestCount(values.guest_count_female),
+      getGuestCount(values.guest_count_children),
       getTotalGuestCount(values),
       values.message || "",
       values.source || ""
@@ -68,7 +70,11 @@ function getTotalGuestCount(values) {
     return submittedTotal;
   }
 
-  return getGuestCount(values.guest_count_male) + getGuestCount(values.guest_count_female);
+  return (
+    getGuestCount(values.guest_count_male) +
+    getGuestCount(values.guest_count_female) +
+    getGuestCount(values.guest_count_children)
+  );
 }
 
 function doGet() {
