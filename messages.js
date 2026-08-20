@@ -3,16 +3,23 @@ const anonymous = document.querySelector("#anonymous");
 const nameInput = document.querySelector("#name");
 const statusEl = document.querySelector("#status");
 const submitButton = document.querySelector("#submitButton");
+const messageCount = document.querySelector("#messageCount");
+
+function updateCharacterCount() {
+  messageCount.textContent = `${form.message.value.length} / 1500`;
+}
 
 function syncAnonymousChoice() {
   const isAnonymous = anonymous.checked;
   nameInput.disabled = isAnonymous;
-  nameInput.placeholder = isAnonymous ? "Anonymous selected" : "Leave your name please";
+  nameInput.placeholder = isAnonymous ? "Anonymous note selected" : "How should we sign your note?";
   if (isAnonymous) nameInput.value = "";
 }
 
 anonymous.addEventListener("change", syncAnonymousChoice);
+form.message.addEventListener("input", updateCharacterCount);
 syncAnonymousChoice();
+updateCharacterCount();
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -47,6 +54,7 @@ form.addEventListener("submit", async (event) => {
     form.reset();
     anonymous.checked = false;
     syncAnonymousChoice();
+    updateCharacterCount();
     statusEl.textContent = "Thank you all for helping me make something special for your friend!";
   } catch (error) {
     statusEl.textContent = "Something went wrong. Please try again in a moment.";
