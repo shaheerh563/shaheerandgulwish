@@ -89,13 +89,13 @@ button, input, textarea { font: inherit; }
   margin: 0 0 25px;
   color: var(--sage-deep);
   font-family: "Italiana", Georgia, serif;
-  font-size: 1.15rem;
+  font-size: 1.55rem;
   letter-spacing: .15em;
 }
 
 .monogram i {
   font-family: "Allura", "Snell Roundhand", cursive;
-  font-size: 1.4rem;
+  font-size: 1.85rem;
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -104,7 +104,7 @@ button, input, textarea { font: inherit; }
   margin: 0;
   color: #1e211e;
   font-family: "Times New Roman", serif;
-  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.65rem);
   line-height: 1.6;
 }
 
@@ -123,7 +123,7 @@ button, input, textarea { font: inherit; }
   margin: 0 0 14px;
   color: var(--sage-deep);
   font-size: .68rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: .32em;
 }
 
@@ -161,7 +161,7 @@ h1 em {
 .field-group > label, .label-row label {
   color: #464d44;
   font-size: .75rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: .2em;
   text-transform: uppercase;
 }
@@ -234,7 +234,7 @@ input[type="text"]:disabled { color: var(--muted); background: rgba(223,231,219,
 .anonymous-choice input:checked + .checkmark::after { opacity: 1; }
 
 .anonymous-copy { display: grid; gap: 2px; white-space: nowrap; }
-.anonymous-copy strong { font-size: .88rem; font-weight: 600; }
+.anonymous-copy strong { font-size: .88rem; font-weight: 400; }
 .anonymous-copy small { color: var(--muted); font-size: .7rem; font-style: italic; }
 
 button {
@@ -249,7 +249,7 @@ button {
   background: var(--sage-deep);
   color: #fff;
   font-size: .78rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: .22em;
   text-transform: uppercase;
   cursor: pointer;
@@ -268,11 +268,11 @@ button:disabled { cursor: wait; opacity: .65; }
   margin: 0 0 13px;
   color: var(--sage-deep);
   font-family: "Allura", "Snell Roundhand", cursive;
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 
-.invitation-footer > p:not(.sign-off):not(.secret-note) { max-width: 420px; margin: 0 auto; font-size: .86rem; font-style: italic; line-height: 1.4; }
-.secret-note { margin: 16px 0 0; color: #8f968c; font-size: .58rem; font-weight: 600; letter-spacing: .26em; }
+.invitation-footer > p:not(.sign-off):not(.secret-note) { max-width: 460px; margin: 0 auto; font-size: 1rem; font-style: italic; line-height: 1.45; }
+.secret-note { margin: 16px 0 0; color: #8f968c; font-size: .68rem; font-weight: 400; letter-spacing: .24em; }
 
 @media (max-width: 720px) {
   .page-shell { display: block; padding: 0; }
